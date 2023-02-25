@@ -4,8 +4,8 @@ from tkinter.filedialog import askopenfilename
 from tkinter import font
 from PIL import ImageTk, Image
 
-# See BlackAndWhite.py 
-from BlackAndWhite import *
+# See b_and_w.py 
+from b_and_w import *
 
 from tkinter.ttk import *
 
@@ -46,7 +46,7 @@ def get_brightness(rgb):
     brightness *= 100
     return int(brightness)
     
-# Threshold is value for a pixel to be considered black or white (see BlackAndWhite.py for more)
+# Threshold is value for a pixel to be considered black or white (see b_and_w.py for more)
 # Updates the image with a new black and white one based on the new threshold (from slider)
 def update_img(threshold):
     global pil_img, pic
