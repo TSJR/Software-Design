@@ -1,6 +1,7 @@
 from PIL import Image
 import numpy
 
+# Calculates brightness value from every rgb value, decimals represent the weight of each color
 def get_brightness(rgb):
     rgb = [(val / 255) for val in rgb]
     brightness = 0
@@ -11,8 +12,10 @@ def get_brightness(rgb):
     # In percent
     return int(brightness)
 
+# Converts an image to black and white based on the threshold
 def get_black_and_white(img, threshold):
-
+    
+    # Resizing to reduce quality (increase speed of processing)
     abs_width = 250
     width, height = img.size
     aspect_ratio = width / height
@@ -23,9 +26,9 @@ def get_black_and_white(img, threshold):
 
     for row in range(len(pixels)):
         for col in range(len(pixels[0])):
+            # Checks where each pixel falls based on the threshold: if it's below, it's black, otherwise, it's white
             if get_brightness(pixels[row][col]) < threshold:
                 new_img.putpixel((col, row), (0, 0, 0))
             else:
                 new_img.putpixel((col, row), (255, 255, 255))
-
     return new_img
