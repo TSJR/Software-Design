@@ -1,5 +1,5 @@
 from xarm.wrapper import XArmAPI
-from Position import *
+from position import *
 import time
 
 # Init
